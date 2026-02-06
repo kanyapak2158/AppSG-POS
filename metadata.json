@@ -1,0 +1,7 @@
+{
+  "name": "SGDATA POS HR Management Portal",
+  "description": "A high-fidelity HR management portal for SGDATA POS with Google Maps integration for automatic location tracking.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

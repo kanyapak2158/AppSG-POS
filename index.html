@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SGDATA POS - HR Portal</title>
+    <!-- Fonts: Prompt (TH) 300,400,500,700 and Montserrat (EN) 300,400,500,600,700 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Maps API Key: อัปเดตเป็นคีย์ใหม่ที่ได้รับจากผู้ใช้งาน -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK6X6yQ-1zWAcbHjvEESuFJgPla5Lu8Eg&libraries=places,geometry&language=th&region=TH"></script>
+    
+    <script>
+      // ตรวจสอบความถูกต้องของ API Key และการเปิดใช้งานบริการ
+      window.gm_authFailure = function() {
+        console.error("Google Maps API authentication failed.");
+        window.dispatchEvent(new CustomEvent('google-maps-auth-error'));
+      };
+
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              prompt: ['Prompt', 'sans-serif'],
+              montserrat: ['Montserrat', 'sans-serif'],
+            },
+            colors: {
+              primary: '#D0342C',
+              brandGrey: '#4A4A4A',
+              charcoal: '#2C2C2C',
+              softGrey: '#F8F9FB',
+              surface: '#FFFFFF',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #F8F9FB;
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        font-family: 'Prompt', 'Montserrat', sans-serif;
+      }
+      .animate-in {
+        animation: fadeIn 0.3s ease-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.98); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      
+      /* Print Styles for PDF Export */
+      @media print {
+        @page { margin: 1cm; size: A4 landscape; }
+        body { background-color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        aside { display: none !important; }
+        header { display: none !important; }
+        .no-print { display: none !important; }
+        
+        /* Force main content to full width */
+        #root > div { display: block !important; }
+        main { padding: 0 !important; overflow: visible !important; height: auto !important; }
+        
+        /* Hide scrollbars and extra decor */
+        ::-webkit-scrollbar { display: none; }
+        
+        /* Adjust HomeView layout for print */
+        .print-break-inside-avoid { break-inside: avoid; }
+        .print-full-width { width: 100% !important; margin: 0 !important; box-shadow: none !important; border: 1px solid #eee !important; border-radius: 10px !important; }
+        
+        /* Make table text smaller for print */
+        table { font-size: 10px !important; }
+        th, td { padding: 4px 8px !important; }
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "xlsx": "https://esm.sh/xlsx@0.18.5",
+    "express": "https://esm.sh/express@^5.2.1",
+    "mysql2": "https://esm.sh/mysql2@^3.16.3",
+    "cors": "https://esm.sh/cors@^2.8.6",
+    "body-parser": "https://esm.sh/body-parser@^2.2.2"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
