@@ -360,7 +360,7 @@ export const EmployeeFieldService: React.FC<EmployeeFieldServiceProps> = ({ user
               </button>
               
               <button type="button" onClick={() => setCurrentStep(2)} className={`w-full py-5 bg-charcoal text-white rounded-[2rem] text-lg shadow-xl hover:bg-black active:scale-95 transition-all ${headCls}`}>
-                Next: Hardware List ->
+                Next: Hardware List &rarr;
               </button>
             </div>
           </div>
